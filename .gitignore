@@ -1,0 +1,10 @@
+*.xml
+*.pyc
+data/
+.idea/
+*.pth
+*.ckpt
+__pycache__
+*.csv
+*.logs
+.vscode
