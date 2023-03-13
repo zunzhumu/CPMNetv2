@@ -51,7 +51,7 @@ pip install SimpleITK==2.2.1 pandas==1.3.5 scikit-image==0.19.3 scipy==1.7.3
 ```bash
 bash train_xxx.sh
 ```
-***Note:*** args.num-sam depend on the average number of instance (lesion) in per sample (N), suggest you set to 2N. The real batch size is args.batch_size * args.num-sam, be careful with your GPU memory.
+***Note:*** args.num_sam depend on the average number of instance (lesion) in per sample (N), suggest you set to 2N. The real batch size is (args.batch_size * args.num_sam), be careful with your GPU memory.
 
 **If you use CPMNetv2, please cite our papers:**
     
