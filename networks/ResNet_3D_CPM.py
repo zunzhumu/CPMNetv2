@@ -296,11 +296,8 @@ class resnet18(nn.Module):
     def __init__(self, n_channels=1, n_blocks=[2, 3, 3, 3], n_filters=[64, 96, 128, 160], stem_filters=32,
                  norm_type='batchnorm', head_norm='batchnorm', act_type='ReLU', se=False, first_stride=(2, 2, 2), detection_loss=None, device=None):
         super(resnet18, self).__init__()
-        if self.training:
-            assert detection_loss is not None
-            assert device is not None
-            self.detection_loss = detection_loss
-            self.device = device
+        self.detection_loss = detection_loss
+        self.device = device
 
         self.in_conv = ConvBlock(n_channels, stem_filters, stride=1, norm_type=norm_type, act_type=act_type)
         self.in_dw = ConvBlock(stem_filters, n_filters[0], stride=first_stride, norm_type=norm_type, act_type=act_type)
