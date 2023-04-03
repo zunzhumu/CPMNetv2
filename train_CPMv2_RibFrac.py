@@ -173,6 +173,8 @@ def train(epoch, train_loader, model=None):
     model.eval().cpu()
     save_model_filename = 'Det_anchorfree' + "_epoch_" + str(epoch) + ".pth"
     save_model_path = os.path.join(args.save_model_dir, save_model_filename)
+    if isinstance(model, DataParallel):
+        model = model.module
     torch.save(model.state_dict(), save_model_path)
     logger.info("Done, trained model saved at {}".format(save_model_path))
 
