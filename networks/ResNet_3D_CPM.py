@@ -524,7 +524,7 @@ class Detection_loss(nn.Module):
         return torch.cat((c_zyx, 2*pred_shapes), dim)  # zyxdhw bbox
     
     @staticmethod
-    def get_pos_target(annotations, anchor_points, stride, spacing, topk=7, ignore_ratio=26):
+    def get_pos_target(annotations, anchor_points, stride, spacing, topk=7, ignore_ratio=5):# larger the ignore_ratio, the more GPU memory is used
         batchsize, num, _ = annotations.size()
         mask_gt = annotations[:, :, -1].clone().gt_(-1)
         ctr_gt_boxes = annotations[:, :, :3] / stride #z0, y0, x0
